@@ -1,0 +1,47 @@
+#----------------------------------
+# /var/
+#----------------------------------
+/var/backup/*
+
+#----------------------------------
+# /etc/nginx/
+#----------------------------------
+*.pem
+
+#----------------------------------
+# /home/[user]/
+#----------------------------------
+.bash_history
+.bash_logout
+.gnupg
+.cache
+.htpasswd
+.ssh
+.pki
+.vim
+.viminfo
+**/log/*
+.mysql_history
+# mysql user and passwd
+.my.cnf
+
+#----------------------------------
+# /home/dokku/
+#----------------------------------
+ENV
+
+#----------------------------------
+# Ruby on Rails
+#----------------------------------
+# Ignore master key for decrypting credentials and more.
+config/initializers/secret_token.rb
+/config/master.key
+#credentials.yml.enc # Use for CircleCI
+
+#----------------------------------
+# Editor Tool and Mac Config
+#----------------------------------
+# Atom Remote-FTP
+.ftpconfig
+# Mac
+.DS_Store
