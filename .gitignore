@@ -26,6 +26,12 @@
 .my.cnf
 
 #----------------------------------
+# /home/ubuntu/
+#----------------------------------
+/home/ubuntu/*
+!/home/ubuntu/docs/server_info/export-server_info.sh
+
+#----------------------------------
 # /home/dokku/
 #----------------------------------
 /home/dokku
