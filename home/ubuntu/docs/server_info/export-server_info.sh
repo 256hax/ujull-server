@@ -1,8 +1,7 @@
 #!/usr/bin/bash
 
-df -h > df-h.txt
-free -h > free-h.txt
-ps -aux > ps-aux.txt
-apt list > apt-list.txt
-
-sudo find / > find.txt
+df -h > logs/df-h.txt
+free -h > logs/free-h.txt
+ps -aux > logs/ps-aux.txt
+sudo dpkg -l > logs/dpkg-l.txt
+sudo find / > logs/find.txt
