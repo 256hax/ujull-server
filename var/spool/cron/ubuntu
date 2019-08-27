@@ -19,18 +19,4 @@
 #
 # For more information see the manual pages of crontab(5) and cron(8)
 #
-# m h  dom mon dow   command
-#
-# （行頭の # マークはコメント行を示す）
-# +------------ 分 (0 - 59)
-# | +---------- 時 (0 - 23)
-# | | +-------- 日 (1 - 31)
-# | | | +------ 月 (1 - 12)
-# | | | | +---- 曜日 (0 - 6) (日曜日=0)
-# | | | | |
-# * * * * * 実行されるコマンド
-
-#--- gnote rails tasks ---
- */5 * * * * dokku run gnote rails bot_comments:first_waves
-   0 * * * * dokku run gnote rails bot_comments:second_waves
-*/10 * * * * dokku run gnote rails bot_likes:first_waves
+# m  h	dom mon dow	user	command

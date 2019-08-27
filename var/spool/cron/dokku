@@ -1,0 +1,32 @@
+# server cron jobs
+PATH=/usr/local/bin:/usr/bin:/bin
+SHELL=/bin/bash
+
+# m   h   dom mon dow   username command
+# *   *   *   *   *     dokku    command to be executed
+# -   -   -   -   -
+# |   |   |   |   |
+# |   |   |   |   +----- day of week (0 - 6) (Sunday=0)
+# |   |   |   +------- month (1 - 12)
+# |   |   +--------- day of month (1 - 31)
+# |   +----------- hour (0 - 23)
+# +----------- min (0 - 59)
+
+# Reference: http://dokku.viewdocs.io/dokku/deployment/one-off-processes/
+
+### Update below
+### HIGH TRAFFIC TIME IS B/W xx:xx - xx:xx AND xx:xx - xx:xx
+### RUN YOUR TASKS FROM xx:xx - xx:xx
+### KEEP SORTED IN TIME ORDER
+
+### PLACE ALL CRON TASKS BELOW
+
+# DO NOT REMOVE. Default cron job.
+@daily /var/lib/dokku/plugins/available/letsencrypt/cron-job
+
+# gnote app: run gnote bot
+*/5 * * * * dokku --rm run gnote rails bot_comments:first_waves > /var/log/cron-ubuntu.log 2>&1
+0 *	* * *	dokku --rm run gnote rails bot_comments:second_waves > /var/log/cron-ubuntu.log 2>&1
+*/10 *	* * *	dokku --rm run gnote rails bot_likes:first_waves > /var/log/cron-ubuntu.log 2>&1
+
+### PLACE ALL CRON TASKS ABOVE, DO NOT REMOVE THE WHITESPACE AFTER THIS LINE
